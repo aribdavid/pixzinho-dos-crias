@@ -1,5 +1,6 @@
 const storeData = [
   {
+    id: 1,
     productName: 'Seda Smoking Brown King Size',
     manufacturer: 'Smoking',
     category: 'Seda',
@@ -7,6 +8,7 @@ const storeData = [
     preco: 8,
   },
   {
+    id: 2,
     productName: 'Seda Bem Bolado Slim',
     manufacturer: 'Bem Bolado',
     category: 'Seda',
@@ -14,6 +16,7 @@ const storeData = [
     preco: 4,
   },
   {
+    id: 3,
     productName: 'Seda Bem Bolado Mini Size',
     manufacturer: 'Bem Bolado',
     category: 'Seda',
@@ -21,6 +24,7 @@ const storeData = [
     preco: 4,
   },
   {
+    id: 4,
     productName: 'Seda Celulose A Leda',
     manufacturer: 'A Leda',
     category: 'Seda',
@@ -28,6 +32,7 @@ const storeData = [
     preco: 3.50,
   },
   {
+    id: 5,
     productName: 'Seda Smoking Master',
     manufacturer: 'Smoking',
     category: 'Seda',
@@ -35,6 +40,7 @@ const storeData = [
     preco: 8,
   },
   {
+    id: 6,
     productName: 'Piteira Papelito Slim',
     manufacturer: 'Papelito',
     category: 'Piteira',
@@ -42,6 +48,7 @@ const storeData = [
     preco: 4,
   },
   {
+    id: 7,
     productName: 'Piteira Bem Bolado Large',
     manufacturer: 'Bem Bolado',
     category: 'Piteira',
@@ -49,6 +56,7 @@ const storeData = [
     preco: 4,
   },
   {
+    id: 8,
     productName: 'Piteira Papelito Tradicional',
     manufacturer: 'Papelito ',
     category: 'Piteira',
@@ -56,6 +64,7 @@ const storeData = [
     preco: 4,
   },
   {
+    id: 9,
     productName: 'Piteira Papelito Bio Large',
     manufacturer: 'Papelito ',
     category: 'Piteira',
@@ -63,6 +72,7 @@ const storeData = [
     preco: 5,
   },
   {
+    id: 10,
     productName: 'Dichavador Fibra de Coco',
     manufacturer: 'Artesanal ',
     category: 'Dichavador',
@@ -70,6 +80,7 @@ const storeData = [
     preco: 12,
   },
   {
+    id: 11,
     productName: 'Dichavador Bem Bolado Grande Acrílico',
     manufacturer: 'Bem Bolado',
     category: 'Dichavador',
@@ -77,6 +88,7 @@ const storeData = [
     preco: 16,
   },
   {
+    id: 13,
     productName: 'Dichavador Bem Bolado Medio Acrílico',
     manufacturer: 'Bem Bolado',
     category: 'Dichavador',
