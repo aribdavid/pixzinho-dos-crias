@@ -5,10 +5,13 @@ import myContext from './myContext';
 
 function MyProvider({ children }) {
   const [login, setLogin] = useState([]);
+  const [filter, setFilter] = useState([]);
 
   const state = {
     login,
     setLogin,
+    filter,
+    setFilter,
   };
   return (
     <myContext.Provider value={state}>

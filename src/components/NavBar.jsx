@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import myContext from '../context/myContext';
 
 export default function NavBar() {
+  const { setFilter } = useContext(myContext);
+
   return (
     <nav id="store" className="w-full z-30 top-0 px-6 py-1">
       <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
-        <a className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="/">
+        <button type="button" onClick={() => setFilter('Seda')} className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl ">
           Sedas
-        </a>
-        <a className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="/">
+        </button>
+        <button type="button" onClick={() => setFilter('Piteira')} className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl ">
           Piteiras
-        </a>
-        <a className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="/">
+        </button>
+        <button type="button" onClick={() => setFilter('Dichavador')} className="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl ">
           Dichavadores
-        </a>
+        </button>
         <div className="flex items-center" id="store-nav-content">
 
           <a className="pl-3 inline-block no-underline hover:text-black" href="/">
