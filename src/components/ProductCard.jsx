@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductCard({
-  name, manufacturer, image, preco,
+  name, manufacturer, image, preco, id,
 }) {
+  const navigate = useNavigate();
+
+  const redirectProductDetails = () => {
+    navigate(`details/${id}`);
+  };
+
   return (
     <div className="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-      <a href="/">
+      <button type="button" onClick={redirectProductDetails}>
         <h4 className="font-bold mt-12 pb-2 border-b border-gray-200">{name}</h4>
         <img
           className="hover:grow hover:shadow-lg"
@@ -26,7 +33,7 @@ export default function ProductCard({
           {' '}
           {preco.toFixed(2)}
         </p>
-      </a>
+      </button>
     </div>
   );
 }
@@ -36,4 +43,5 @@ ProductCard.propTypes = {
   manufacturer: PropTypes.string,
   image: PropTypes.string,
   preco: PropTypes.number,
+  id: PropTypes.number,
 }.isRequired;

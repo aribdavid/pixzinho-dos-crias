@@ -2,16 +2,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import myContext from './myContext';
+import storeData from '../storeData';
 
 function MyProvider({ children }) {
   const [login, setLogin] = useState([]);
   const [filter, setFilter] = useState([]);
+  const [data, setData] = useState(storeData);
 
   const state = {
     login,
     setLogin,
     filter,
     setFilter,
+    data,
+    setData,
   };
   return (
     <myContext.Provider value={state}>

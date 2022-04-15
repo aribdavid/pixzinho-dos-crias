@@ -3,11 +3,10 @@ import Header from '../components/Header';
 import ProductCard from '../components/ProductCard';
 import Button from '../components/Button';
 import NavBar from '../components/NavBar';
-import storeData from '../storeData';
 import myContext from '../context/myContext';
 
 export default function MainPage() {
-  const { filter } = useContext(myContext);
+  const { filter, data } = useContext(myContext);
 
   return (
     <main className="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
@@ -19,7 +18,7 @@ export default function MainPage() {
       <section className="bg-white py-8">
         <NavBar />
         <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-          {storeData
+          {data
             .filter((elem) => elem.category.includes(filter))
             .map((elem) => (
               <ProductCard
@@ -27,6 +26,7 @@ export default function MainPage() {
                 manufacturer={elem.manufacturer}
                 image={elem.image}
                 preco={elem.preco}
+                id={elem.id}
               />
             ))}
         </div>
