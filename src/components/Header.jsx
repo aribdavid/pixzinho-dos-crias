@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <header>
+    <header className="text-gray-600">
       <nav>
         <section>
           <h1>
@@ -10,7 +10,7 @@ export default function Header() {
           </h1>
         </section>
         <ul>
-          <li>
+          <li className="text-gray-700">
             <a href="/">
               <span>tabacaria</span>
             </a>
