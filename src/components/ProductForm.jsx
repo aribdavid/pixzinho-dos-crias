@@ -1,32 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Proptypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import myContext from '../context/myContext';
 
 export default function ProductForm({
-  title, handle, mainImg,
+  title, mainImg, preco,
 }) {
   const [quantity, setQuantity] = useState(1);
-  const addToCart = true;
+  const { setCart } = useContext(myContext);
 
-  async function handleAddToCart() {
-    // update store context
-    if (quantity !== '') {
-      addToCart({
-        productTitle: title,
-        productHandle: handle,
-        productImage: mainImg,
-        variantQuantity: quantity,
-      });
+  const insertData = () => {
+    const myCart = JSON.parse(localStorage.getItem('cart'));
+    setCart(myCart);
+  };
+
+  useEffect(() => {
+    insertData();
+  });
+
+  function handleAddToCart() {
+    const myCart = JSON.parse(localStorage.getItem('cart'));
+    if (myCart) {
+      localStorage.setItem('cart', JSON.stringify([...myCart, {
+        productName: title,
+        image: mainImg,
+        quantidade: quantity,
+        preco,
+      }]));
+    } else {
+      localStorage.setItem('cart', JSON.stringify([{
+        productName: title,
+        image: mainImg,
+        quantidade: quantity,
+        preco,
+      }]));
     }
   }
 
   function updateQuantity(e) {
     if (e === '') {
       setQuantity('');
-    } else {
-      setQuantity(Math.floor(e));
     }
+    setQuantity(Math.floor(e));
   }
 
   return (
@@ -41,7 +57,7 @@ export default function ProductForm({
             name="quantity"
             min="1"
             step="1"
-            value={quantity}
+            defaultValue={quantity}
             onChange={(e) => updateQuantity(e.target.value)}
             className="text-gray-900 form-input border border-gray-300 w-16 rounded-sm focus:border-palette-light focus:ring-palette-light"
           />
@@ -52,9 +68,12 @@ export default function ProductForm({
         justify-center items-baseline  hover:bg-palette-dark"
         type="button"
         aria-label="cart-button"
-        onClick={handleAddToCart}
+        onClick={() => {
+          handleAddToCart();
+          insertData();
+        }}
       >
-        Add To Cart
+        Adicionar ao Carrinho
         <FontAwesomeIcon icon={faShoppingCart} className="w-5 ml-2" />
       </button>
     </div>
@@ -63,8 +82,6 @@ export default function ProductForm({
 
 ProductForm.propTypes = {
   title: Proptypes.string,
-  manufacturer: Proptypes.string,
-  image: Proptypes.string,
+  mainImg: Proptypes.string,
   preco: Proptypes.number,
-  id: Proptypes.number,
 }.isRequired;

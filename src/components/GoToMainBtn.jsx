@@ -14,7 +14,7 @@ export default function GoToMainBtn() {
       justify-center items-center focus:ring-1 focus:ring-palette-light focus:outline-none w-full hover:bg-palette-lighter rounded-sm"
     >
       <FontAwesomeIcon icon={faArrowLeft} className="w-4 mr-2 inline-flex" />
-      Back To All Products
+      Voltar à pagina principal
     </button>
   );
 }
