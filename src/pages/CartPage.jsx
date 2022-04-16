@@ -4,7 +4,7 @@ import CartTable from '../components/CartTable';
 
 export default function CartPage() {
   return (
-    <div className="container mx-auto mb-20 min-h-screen">
+    <div className="container bg-palette-light mx-auto mb-20 min-h-screen">
       <h1 className="leading-relaxed font-primary font-extrabold text-4xl text-center text-palette-primary mt-4 py-2 sm:py-4">
         Seu Carrinho
       </h1>
