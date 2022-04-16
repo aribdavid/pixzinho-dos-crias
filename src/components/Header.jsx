@@ -61,7 +61,7 @@ export default function Header() {
         </div>
       </div>
 
-      <button type="button" onClick={() => navigate('/cart')} className="relative" aria-label="cart">
+      <button type="button" onClick={() => navigate('/cart')} className="relative mt-6" aria-label="cart">
         <FontAwesomeIcon className="text-palette-primary w-8 m-auto fa-5x" icon={faShoppingCart} />
         {
                 !cart
