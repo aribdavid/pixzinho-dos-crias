@@ -88,7 +88,7 @@ const storeData = [
     preco: 16,
   },
   {
-    id: 13,
+    id: 12,
     productName: 'Dichavador Bem Bolado Medio Acrílico',
     manufacturer: 'Bem Bolado',
     category: 'Dichavador',

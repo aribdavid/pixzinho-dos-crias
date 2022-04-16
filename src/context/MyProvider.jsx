@@ -8,6 +8,8 @@ function MyProvider({ children }) {
   const [login, setLogin] = useState([]);
   const [filter, setFilter] = useState([]);
   const [data, setData] = useState(storeData);
+  const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
 
   const state = {
     login,
@@ -16,6 +18,10 @@ function MyProvider({ children }) {
     setFilter,
     data,
     setData,
+    cart,
+    setCart,
+    total,
+    setTotal,
   };
   return (
     <myContext.Provider value={state}>
