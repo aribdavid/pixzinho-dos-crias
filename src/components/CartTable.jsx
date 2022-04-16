@@ -58,8 +58,8 @@ export default function CartTable() {
                   name="variant-quantity"
                   min="1"
                   step="1"
-                  value={item.quantidade}
-                  onChange={() => 'flibs'}
+                  defaultValue={item.quantidade}
+                  onChange={() => 'HandleFinalQtd(index)'}
                   className="text-gray-900 form-input border border-gray-300 w-16 rounded-sm focus:border-palette-light focus:ring-palette-light"
                 />
               </td>

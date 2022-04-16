@@ -9,7 +9,9 @@ function MyProvider({ children }) {
   const [filter, setFilter] = useState([]);
   const [data, setData] = useState(storeData);
   const [cart, setCart] = useState([]);
+  const [search, setSearch] = useState('');
   const [total, setTotal] = useState(0);
+  const [searchPreview, setSearchPreview] = useState('');
 
   const state = {
     login,
@@ -22,6 +24,10 @@ function MyProvider({ children }) {
     setCart,
     total,
     setTotal,
+    search,
+    setSearch,
+    searchPreview,
+    setSearchPreview,
   };
   return (
     <myContext.Provider value={state}>
