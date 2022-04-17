@@ -90,7 +90,7 @@ export default function ProductForm({
       >
         Meu Carrinho
         {' '}
-        {`(${cart.length})`}
+        {cart ? `(${cart.length})` : '(0)'}
 
       </button>
     </div>
