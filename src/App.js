@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import MainPage from './pages/MainPage';
@@ -10,7 +10,19 @@ import myContext from './context/myContext';
 import ProfilePage from './pages/ProfilePage';
 
 function App() {
-  const { login } = useContext(myContext);
+  const { login, setLogin, setNome } = useContext(myContext);
+
+  const checkUser = () => {
+    const user = JSON.parse(localStorage.getItem('userInfo'));
+    if (user) {
+      setLogin(true);
+      setNome(user.nome);
+    }
+  };
+
+  useEffect(() => {
+    checkUser();
+  });
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />

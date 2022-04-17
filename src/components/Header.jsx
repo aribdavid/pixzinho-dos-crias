@@ -9,14 +9,12 @@ export default function Header() {
   const navigate = useNavigate();
 
   const {
-    cart, setCart, setSearch, searchPreview, setSearchPreview,
+    cart, setCart, setSearch, searchPreview, setSearchPreview, nome, login,
   } = useContext(myContext);
   const insertData = () => {
     const myCart = JSON.parse(localStorage.getItem('cart'));
     setCart(myCart);
   };
-
-  // const { nome } = JSON.parse(localStorage.getItem('userInfo'));
 
   useEffect(() => {
     insertData();
@@ -64,8 +62,8 @@ export default function Header() {
       </div>
       <div className="flex items-center mt-6">
         <button type="button" onClick={() => navigate('/signup')} className="relative mx-3" aria-label="cart">
-          {/* {
-            login && nome !== null ? (
+          {
+            login && nome !== '' ? (
               <span>
                 Olá,
                 {' '}
@@ -73,7 +71,7 @@ export default function Header() {
                 {' '}
               </span>
             ) : null
-          } */}
+          }
           <FontAwesomeIcon className="text-palette-primary w-8 m-auto fa-xl " icon={faUser} />
         </button>
         <button type="button" onClick={() => navigate('/cart')} className="relative" aria-label="cart">
