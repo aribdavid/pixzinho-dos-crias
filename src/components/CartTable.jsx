@@ -16,9 +16,13 @@ export default function CartTable() {
     setCart(removedItemArray);
     localStorage.setItem('cart', JSON.stringify(removedItemArray));
   };
-
+  const handleCart = () => {
+    if (cart) {
+      setTotal(cart.reduce((acc, elem) => acc + (elem.preco * elem.quantidade), 0));
+    }
+  };
   useEffect(() => {
-    setTotal(cart.reduce((acc, elem) => acc + (elem.preco * elem.quantidade), 0));
+    handleCart();
   }, [cart]);
 
   return (

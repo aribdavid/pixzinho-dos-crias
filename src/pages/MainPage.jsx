@@ -12,7 +12,7 @@ export default function MainPage() {
 
   return (
     <main className="bg-white work-sans leading-normal text-base tracking-normal">
-      <nav id="header" className=" shadow-lg   sticky z-50 w-full  bg-palette-secondary  top-0 py-1">
+      <nav id="header" className="shadow-lg   sticky z-50 w-full  bg-palette-secondary  top-0 py-1">
         <Header />
         <NavBar />
       </nav>

@@ -8,6 +8,7 @@ import CartPage from './pages/CartPage';
 import SignUpPage from './pages/SignUpPage';
 import myContext from './context/myContext';
 import ProfilePage from './pages/ProfilePage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   const { login, setLogin, setNome } = useContext(myContext);
@@ -30,6 +31,7 @@ function App() {
       <Route path="/cart" element={<CartPage />} />
       <Route path="/signup" element={login ? <Navigate to="/profile" /> : <SignUpPage />} />
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 }

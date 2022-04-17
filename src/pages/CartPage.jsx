@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import GoToMainBtn from '../components/GoToMainBtn';
 import CartTable from '../components/CartTable';
 
@@ -10,6 +12,15 @@ export default function CartPage() {
       </h1>
       <CartTable />
       <div className="max-w-sm mx-auto space-y-4 px-2">
+        <button
+          className="pt-3 pb-2 bg-palette-primary text-white w-full mt-2 rounded-sm font-primary font-semibold text-xl flex
+        justify-center items-center  hover:bg-palette-secondary"
+          type="button"
+          aria-label="cart-button"
+        >
+          Finalizar Compra
+          <FontAwesomeIcon icon={faCreditCard} className=" w-5 ml-2" />
+        </button>
         <GoToMainBtn />
       </div>
     </div>
