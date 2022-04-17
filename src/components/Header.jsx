@@ -61,20 +61,24 @@ export default function Header() {
         </div>
       </div>
       <div className="flex items-center mt-6">
-        <button type="button" onClick={() => navigate('/signup')} className="relative mx-3" aria-label="cart">
+        <button type="button" onClick={() => navigate('/signup')} className="hover:scale-110 relative mx-3" aria-label="cart">
           {
             login && nome !== '' ? (
-              <span>
+              <span className="font-semibold text-palette-primary">
                 Olá,
                 {' '}
                 {nome}
                 {' '}
               </span>
-            ) : null
+            ) : (
+              <span className="font-semibold text-palette-primary">
+                Entrar/Registrar
+              </span>
+            )
           }
           <FontAwesomeIcon className="text-palette-primary w-8 m-auto fa-xl " icon={faUser} />
         </button>
-        <button type="button" onClick={() => navigate('/cart')} className="relative" aria-label="cart">
+        <button type="button" onClick={() => navigate('/cart')} className="hover:scale-110 relative" aria-label="cart">
           <FontAwesomeIcon className="text-palette-primary w-8 m-auto fa-5x" icon={faShoppingCart} />
           {
                 !cart

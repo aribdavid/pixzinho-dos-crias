@@ -8,7 +8,7 @@ function MyProvider({ children }) {
   const [login, setLogin] = useState(false);
   const [filter, setFilter] = useState([]);
   const [data, setData] = useState(storeData);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState();
   const [search, setSearch] = useState('');
   const [total, setTotal] = useState(0);
   const [searchPreview, setSearchPreview] = useState('');
