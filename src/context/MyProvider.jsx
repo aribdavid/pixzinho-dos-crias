@@ -5,13 +5,17 @@ import myContext from './myContext';
 import storeData from '../storeData';
 
 function MyProvider({ children }) {
-  const [login, setLogin] = useState([]);
+  const [login, setLogin] = useState(false);
   const [filter, setFilter] = useState([]);
   const [data, setData] = useState(storeData);
   const [cart, setCart] = useState([]);
   const [search, setSearch] = useState('');
   const [total, setTotal] = useState(0);
   const [searchPreview, setSearchPreview] = useState('');
+  const [nome, setNome] = useState('');
+  const [sobrenome, setSobrenome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
   const state = {
     login,
@@ -28,6 +32,14 @@ function MyProvider({ children }) {
     setSearch,
     searchPreview,
     setSearchPreview,
+    nome,
+    setNome,
+    sobrenome,
+    setSobrenome,
+    email,
+    setEmail,
+    senha,
+    setSenha,
   };
   return (
     <myContext.Provider value={state}>

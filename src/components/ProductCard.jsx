@@ -16,7 +16,7 @@ export default function ProductCard({
       <button type="button" onClick={redirectProductDetails}>
         <h4 className="font-bold text-palette-primary font-semibold pb-2 border-b border-gray-200">{name}</h4>
         <img
-          className="hover:grow hover:shadow-lg"
+          className="rounded hover:grow hover:shadow-lg"
           src={image}
           alt={name}
         />
