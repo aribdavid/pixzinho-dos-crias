@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import logo from '../images/resources/logo2.png';
 import myContext from '../context/myContext';
 
@@ -9,12 +9,14 @@ export default function Header() {
   const navigate = useNavigate();
 
   const {
-    cart, setCart, setSearch, searchPreview, setSearchPreview,
+    cart, setCart, setSearch, searchPreview, setSearchPreview, login,
   } = useContext(myContext);
   const insertData = () => {
     const myCart = JSON.parse(localStorage.getItem('cart'));
     setCart(myCart);
   };
+
+  const { nome } = JSON.parse(localStorage.getItem('userInfo'));
 
   useEffect(() => {
     insertData();
@@ -60,10 +62,23 @@ export default function Header() {
           </div>
         </div>
       </div>
-
-      <button type="button" onClick={() => navigate('/cart')} className="relative mt-6" aria-label="cart">
-        <FontAwesomeIcon className="text-palette-primary w-8 m-auto fa-5x" icon={faShoppingCart} />
-        {
+      <div className="flex items-center mt-6">
+        <button type="button" onClick={() => navigate('/signup')} className="relative mx-3" aria-label="cart">
+          {
+            login ? (
+              <span>
+                Olá,
+                {' '}
+                {nome}
+                {' '}
+              </span>
+            ) : null
+          }
+          <FontAwesomeIcon className="text-palette-primary w-8 m-auto fa-xl " icon={faUser} />
+        </button>
+        <button type="button" onClick={() => navigate('/cart')} className="relative" aria-label="cart">
+          <FontAwesomeIcon className="text-palette-primary w-8 m-auto fa-5x" icon={faShoppingCart} />
+          {
                 !cart
                   ? null
                   : (
@@ -74,7 +89,8 @@ export default function Header() {
                     </div>
                   )
               }
-      </button>
+        </button>
+      </div>
 
     </div>
   );

@@ -43,7 +43,7 @@ export default function CartTable() {
                   width={64}
                   className="hidden sm:inline-flex"
                 />
-                <button type="button" className="pt-1 hover:text-palette-dark" onClick={() => navigate(`/products/${item.productHandle}`)}>
+                <button type="button" className="pt-1 hover:text-palette-dark" onClick={() => navigate(`/details/${item.id}`)}>
                   {item.productName}
                   ,
                   {' '}

@@ -1,14 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Proptypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import myContext from '../context/myContext';
 
 export default function ProductForm({
-  title, mainImg, preco,
+  title, mainImg, preco, id,
 }) {
   const [quantity, setQuantity] = useState(1);
-  const { setCart } = useContext(myContext);
+  const { setCart, cart } = useContext(myContext);
+  const navigate = useNavigate();
 
   const insertData = () => {
     const myCart = JSON.parse(localStorage.getItem('cart'));
@@ -34,6 +36,7 @@ export default function ProductForm({
         image: mainImg,
         quantidade: quantity,
         preco,
+        id,
       }]));
     }
   }
@@ -65,7 +68,7 @@ export default function ProductForm({
       </div>
       <button
         className="pt-3 pb-2 bg-palette-primary text-white w-full mt-2 rounded-sm font-primary font-semibold text-xl flex
-        justify-center items-baseline  hover:bg-palette-dark"
+        justify-center items-baseline  hover:bg-palette-secondary"
         type="button"
         aria-label="cart-button"
         onClick={() => {
@@ -76,6 +79,20 @@ export default function ProductForm({
         Adicionar ao Carrinho
         <FontAwesomeIcon icon={faShoppingCart} className="w-5 ml-2" />
       </button>
+      <button
+        className="pt-3 pb-2 bg-palette-primary text-white mt-2 rounded-sm font-primary font-semibold text-xl flex
+        justify-center items-baseline w-full  hover:bg-palette-secondary"
+        type="button"
+        aria-label="cart-button"
+        onClick={() => {
+          navigate('/cart');
+        }}
+      >
+        Meu Carrinho
+        {' '}
+        {`(${cart.length})`}
+
+      </button>
     </div>
   );
 }
@@ -84,4 +101,5 @@ ProductForm.propTypes = {
   title: Proptypes.string,
   mainImg: Proptypes.string,
   preco: Proptypes.number,
+  id: Proptypes.number,
 }.isRequired;
