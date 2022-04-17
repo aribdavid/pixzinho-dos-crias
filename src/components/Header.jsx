@@ -65,7 +65,7 @@ export default function Header() {
       <div className="flex items-center mt-6">
         <button type="button" onClick={() => navigate('/signup')} className="relative mx-3" aria-label="cart">
           {
-            login ? (
+            login && nome ? (
               <span>
                 Olá,
                 {' '}
