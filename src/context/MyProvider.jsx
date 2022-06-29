@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import myContext from './myContext';
-import storeData from '../storeData';
+// import storeData from '../storeData';
 
 function MyProvider({ children }) {
   const [login, setLogin] = useState(false);
   const [filter, setFilter] = useState([]);
-  const [data, setData] = useState(storeData);
+  const [data, setData] = useState();
   const [cart, setCart] = useState();
   const [search, setSearch] = useState('');
   const [total, setTotal] = useState(0);

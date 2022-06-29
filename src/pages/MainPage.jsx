@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 // import { Carousel } from 'react-responsive-carousel';
 import Header from '../components/Header';
 import ProductCard from '../components/ProductCard';
@@ -8,7 +8,19 @@ import NavBar from '../components/NavBar';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
 export default function MainPage() {
-  const { filter, data, search } = useContext(myContext);
+  const {
+    filter, data, search, setData,
+  } = useContext(myContext);
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      const list = await fetch('http://localhost:3001/tabacaria')
+        .then((response) => response.json())
+        .then((products) => products);
+      setData(list);
+    };
+    fetchApi();
+  }, []);
 
   return (
     <main className="bg-white work-sans leading-normal text-base tracking-normal">
@@ -32,7 +44,7 @@ export default function MainPage() {
       </Carousel> */}
       <section className="bg-palette-light">
         <div className="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-          {data
+          {data && data
             .filter((elem) => elem.productName.toLowerCase().includes(search.toLowerCase()))
             .filter((elem) => elem.category.includes(filter))
             .map((elem) => (
