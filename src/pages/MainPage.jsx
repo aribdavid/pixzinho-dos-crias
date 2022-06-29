@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import ProductCard from '../components/ProductCard';
 import myContext from '../context/myContext';
 import NavBar from '../components/NavBar';
+import storeData from '../storeData';
 // import carousel1 from '../images/carousel/carousel1.jpg';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
@@ -13,13 +14,7 @@ export default function MainPage() {
   } = useContext(myContext);
 
   useEffect(() => {
-    const fetchApi = async () => {
-      const list = await fetch('http://localhost:3001/tabacaria')
-        .then((response) => response.json())
-        .then((products) => products);
-      setData(list);
-    };
-    fetchApi();
+    setData(storeData);
   }, []);
 
   return (
